@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: core-app-container
-          image: demo:latest #IMPORTANT: Specify a tag (:latest in this case) and a pull policy  if using kind.
+          image: demo:1.0.1 #IMPORTANT: Specify a tag (:latest in this case) and a pull policy  if using kind.
           imagePullPolicy: Never
           env:
             - name: PORT
@@ -28,6 +28,6 @@ spec:
             #     configMapKeyRef:
             #       name: core-config
             #       key: MY_SECRET
-          # envFrom:
-          #   - configMapRef:
-          #       name: core-config
+          envFrom:
+            - configMapRef:
+                name: core-config
