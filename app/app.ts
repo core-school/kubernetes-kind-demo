@@ -19,6 +19,11 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/error", async (req, res) => {
+  //https://www.eitb.eus/es/television/programas/la-noche-de/videos/detalle/5074592/sayonara-baby-otras-frases-se-doblaron-pese-ser-castellano/
+  throw new Error("Hasta la vista, baby");
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Ready on port ${PORT} -> ${random_name}`));

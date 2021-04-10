@@ -66,6 +66,12 @@ See [https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-services
 curl http://localhost:8001/api/v1/namespaces/default/services/service-core-code-school:http/proxy/
 ```
 
+## Roll update
+
+```bash
+kubectl set image deployments/core-deployment core-app-container=demo:latest
+```
+
 ## References
 
 - [https://kind.sigs.k8s.io/docs/user/quick-start/]
@@ -74,3 +80,12 @@ curl http://localhost:8001/api/v1/namespaces/default/services/service-core-code-
 - [https://iximiuz.com/en/posts/kubernetes-kind-load-docker-image/]
 - [https://github.com/derailed/k9s]
 - [https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-services/#manually-constructing-apiserver-proxy-urls]
+- [https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/]
+
+* If you need some relaxing music when using kubernetes, here's our playlist:
+  https://open.spotify.com/playlist/6qhumsqGJa40xTVZEYnbQJ?si=3a18e9f83e0a42d7
+
+## Managed cluster providers
+
+- https://www.digitalocean.com/products/kubernetes/
+- https://cloud.google.com/kubernetes-engine
