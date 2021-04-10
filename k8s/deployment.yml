@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: core-deployment
+  labels:
+    app: sample
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: core-app
+  template:
+    metadata:
+      labels:
+        app: core-app
+    spec:
+      containers:
+        - name: core-app-container
+          image: demo:latest #IMPORTANT: Specify a tag (:latest in this case) and a pull policy  if using kind.
+          imagePullPolicy: Never
+          env:
+            - name: PORT
+              value: "3000"
+            - name: RUNNING_ON
+              value: "kubernetes-cluster"
+            # - name: THE_SECRET
+            #   valueFrom:
+            #     configMapKeyRef:
+            #       name: core-config
+            #       key: MY_SECRET
+          # envFrom:
+          #   - configMapRef:
+          #       name: core-config

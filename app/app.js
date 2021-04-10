@@ -16,7 +16,9 @@ var random_name = lodash_1["default"].sample([
 ]);
 app.get("/", function (req, res) {
     res.json({
-        random_name: random_name
+        random_name: random_name,
+        running_on: process.env.RUNNING_ON || "local",
+        secret: process.env.THE_SECRET || "no-secret"
     });
 });
 var PORT = process.env.PORT || 3000;

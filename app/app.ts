@@ -14,6 +14,8 @@ const random_name = _.sample([
 app.get("/", (req, res) => {
   res.json({
     random_name,
+    running_on: process.env.RUNNING_ON || "local",
+    secret: process.env.THE_SECRET || "no-secret",
   });
 });
 
